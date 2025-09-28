@@ -1,0 +1,58 @@
+{
+  "name": "remontivarna",
+  "short_name": "remonti",
+  "description": "This is a repair services site.",
+  "version": "1.0.0",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://cookieinfoscript.com/*",
+    "*://google-analytics.com/*",
+    "*://tagmanager.google.com/*",
+    "*://fonts.googleapis.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/jquery.min.js",
+        "js/templatemo_script.js",
+        "js/cookieinfo.min.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "js/jquery.backstretch.min.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "js/jquery.min.js",
+        "js/templatemo_script.js",
+        "js/cookieinfo.min.js",
+        "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "content_security_policy": "script-src 'self' 'nonce-randomNonceValue'; object-src 'self'; 'unsafe-inline' 'unsafe-eval' https://cookieinfoscript.com https://google-analytics.com; object-src 'self';",
+  "background_color": "#3367D6",
+  "theme_color": "#3367D6",
+  "icons": [
+    {
+      "src": "/static/fonts/fontawesome-webfont.svg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
