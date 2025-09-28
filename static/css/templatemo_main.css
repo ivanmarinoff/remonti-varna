@@ -6,18 +6,22 @@ https://templatemo.com/tm-398-nature
 
 */
 
-body, html { overflow-x: hidden; }
+body, html {
+    overflow-x: hidden;
+}
 
 body {
     font-size: 1em;
     line-height: 1.4;
     font-family: 'Raleway', sans-serif;
-    font-style: normal; 
+    font-style: normal;
     -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
     -webkit-text-size-adjust: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, span, p { font-family: 'Raleway', sans-serif; }
+h1, h2, h3, h4, h5, h6, span, p {
+    font-family: 'Raleway', sans-serif;
+}
 
 hr {
     display: block;
@@ -57,23 +61,24 @@ img {
 
 /* General */
 #main-wrapper {
-     overflow: hidden;
+    overflow: hidden;
 }
 
-.templatemo-site-title { 
-    color: #fff !important; 
+.templatemo-site-title {
+    color: #fff !important;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 1);
-	font-size: 48px;
+    font-size: 48px;
 }
 
-.templatemo-site-title a, .templatemo-site-title a:hover { 
-	color: #fff;
-	text-decoration: none;
+.templatemo-site-title a, .templatemo-site-title a:hover {
+    color: #fff;
+    text-decoration: none;
+    font-size: 5vw; /* 5% от ширината на екрана */
 }
 
 img.slide {
-    width: 100%; 
-    z-index: -9999999; 
+    width: 100%;
+    z-index: -9999999;
     position: absolute;
 }
 
@@ -100,18 +105,18 @@ img.slide {
 
 .templatemo-content {
     position: static;
-    overflow: hidden; 
+    overflow: hidden;
     margin-top: 36%;
 }
 
 .templatemo-content section {
     font-family: 'Raleway', sans-serif;
-    position: relative; 
+    position: relative;
     overflow: hidden;
-    top: 0; 
-    background-color: rgba(255,255,255,0.75);
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.75);
     padding: 30px;
-	line-height: 1.8;
+    line-height: 1.8;
 }
 
 
@@ -131,15 +136,15 @@ img.slide {
 }
 
 .menu {
-    position: fixed; 
+    position: fixed;
     width: 220px;
-    z-index: 1; 
+    z-index: 1;
     top: 35px;
 }
 
 #menu-list {
-    background-color: rgba(0, 0, 0,0.5);
-    font-size: 16px; 
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
     padding: 0;
 }
 
@@ -149,23 +154,23 @@ img.slide {
 
 
 #menu-list > li > a {
-    font-family: 'Raleway', sans-serif; 
-    padding: 10px 0 10px 30px; 
-    text-decoration: none; 
+    font-family: 'Raleway', sans-serif;
+    padding: 10px 0 10px 30px;
+    text-decoration: none;
     display: block;
-    color: #fff; 
+    color: #fff;
 }
 
 #menu-list > .active > a,
-#menu-list > li > a:hover { 
-    background-color: rgba(255,255,255,0.25);
+#menu-list > li > a:hover {
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
 
 #responsive {
     font-size: 16px;
     padding: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #responsive li {
@@ -173,21 +178,21 @@ img.slide {
 }
 
 #responsive li a {
-    font-family: 'Raleway', sans-serif; 
-    color: #fff; 
-    text-decoration: none; 
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    text-decoration: none;
     padding: 10px 0;
     display: block;
 }
 
 #responsive > .active > a,
 #responsive li a:hover {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #map-canvas {
-	height: 256px;
-	margin-bottom: 10px;
+    height: 256px;
+    margin-bottom: 10px;
 }
 
 .templatemo-content {
@@ -195,31 +200,32 @@ img.slide {
 }
 
 .footer {
-    overflow: hidden; 
-    position: fixed; 
+    overflow: hidden;
+    position: fixed;
     bottom: 10px;
 }
 
 .footer-text {
-    font-family: 'Raleway', sans-serif; 
-    color: #fff; 
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 1);
     margin-left: 30px;
     font-size: 14px;
 }
 
-.footer-text a, .footer-text a:hover { 
-	color: #fff;
-	text-decoration: none;
+.footer-text a, .footer-text a:hover {
+    color: #fff;
+    text-decoration: none;
 }
 
 @media (max-width: 991px) {
     .footer {
-        overflow:hidden; 
-        position:static;
+        overflow: hidden;
+        position: static;
         text-align: center;
-        
+
     }
+
     .footer-text {
         margin-left: 0;
     }
