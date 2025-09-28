@@ -555,6 +555,11 @@ a.bg-danger:hover {
     border-bottom: 1px solid #eee
 }
 
+.header-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
 ul, ol {
     margin-top: 0;
     margin-bottom: 10px
