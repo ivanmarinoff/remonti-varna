@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="bg">
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>
@@ -7,10 +8,26 @@
 <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
+
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <!-- Mobile responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          style-src 'self' https://fonts.googleapis.com;
+          font-src 'self' https://fonts.gstatic.com;
+          img-src 'self' data:;
+          script-src 'self';
+        ">
+
+
     <title>Строителни услуги Варна</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
@@ -18,11 +35,13 @@
     Nature Template
     https://templatemo.com/tm-398-nature
     -->
-    <meta name="viewport" content="width=device-width">
+<!--    <meta name="viewport" content="width=device-width">-->
 
     <!-- Google Web Font Embed -->
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,500,300,700' rel='stylesheet' type='text/css'>
-
+    <!--    <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,500,300,700' rel='stylesheet' type='text/css'>-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,500,300,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/templatemo_main.css">
 </head>
@@ -31,7 +50,8 @@
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser.
         Please <a rel="nofollow" href="http://browsehappy.com">upgrade your browser</a>
-        or <a rel="nofollow" href="https://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+        or <a rel="nofollow" href="https://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a>
+        to
         improve your experience.</p>
     <![endif]-->
 
@@ -52,7 +72,7 @@
             <li class="testimonial-menu"><a href="#testimonial">Саниране</a></li>
             <li class="additional-menu"><a href="#additional">Допълнителни услуги</a></li>
             <li class="contact-menu"><a href="#contact">Контакти</a></li>
-<!--            <li><a rel="nofollow" target="_parent" href="https://fb.com/templatemo" class="external">FB Page</a></li>-->
+            <!--            <li><a rel="nofollow" target="_parent" href="https://fb.com/templatemo" class="external">FB Page</a></li>-->
         </ul>
     </div><!-- /.menu -->
 
@@ -79,7 +99,7 @@
                             ремонти.
                             Работим бързо, прецизно и с гаранция за качество.
                             Доверете се на опитен екип с множество доволни клиенти.</p>
-                            <p>Свържете се с <a class="contact-menu" rel="nofollow" href="#contact">нас</a>
+                        <p>Свържете се с <a class="contact-menu" rel="nofollow" href="#contact">нас</a>
                             днес и превърнете дома си в мечтаното място!</p>
                         <p>Ще получите БЕЗПЛАТНА ОФЕРТА след извършен оглед на място в срок от 48 часа.</p>
                         <p>Използваме само висококачествени материали и съвременни технологии за постигане на
@@ -130,7 +150,8 @@
                 <section id="testimonial-text" class="inactive">
                     <div class="col-sm-12 col-md-12">
                         <h2>Саниране и хидроизолация</h2>
-                        <p>Ние предлагаме професионално саниране и хидроизолация на сгради – топлоизолация, подмяна на дограма и модерна
+                        <p>Ние предлагаме професионално саниране и хидроизолация на сгради – топлоизолация, подмяна на
+                            дограма и модерна
                             фасадна визия.
                             С нашите решения намалявате сметките за енергия и повишавате комфорта у дома.
                             Доверете се на опита ни за дълготрайна защита и обновен облик на вашата сграда.</p>
@@ -144,7 +165,8 @@
                     <h2 class="text-center">Допълнителни услуги</h2>
                     <div class="col-sm-4 col-md-4">
                         <h3>Фаянс и теракот</h3>
-                        <p>Извършваме цялостен и частичен ремонт на бани и санитарни помещения.Полагаме фаянс, теракот и гранитогрес на коридори, общи помещения и тераси.</p>
+                        <p>Извършваме цялостен и частичен ремонт на бани и санитарни помещения.Полагаме фаянс, теракот и
+                            гранитогрес на коридори, общи помещения и тераси.</p>
                     </div>
                     <div class="col-sm-4 col-md-4">
                         <h3>Тапети</h3>
@@ -154,8 +176,10 @@
                     <div class="col-sm-4 col-md-4">
                         <h3>Други услуги</h3>
                         <p>Предлагаме монтаж на первази, монтаж на окачени тавани, монтаж и демонтаж на мебели,
-                            монтаж на ламинат, монтаж на винил, полагане на саморазливна замазка, обръщане на врати и прозорци.
-                            ВиК и Ел.услуги.</p><p>Шпакловане на тавани и стени, външно и вътрешно полагане.</p>
+                            монтаж на ламинат, монтаж на винил, полагане на саморазливна замазка, обръщане на врати и
+                            прозорци.
+                            ВиК и Ел.услуги.</p>
+                        <p>Шпакловане на тавани и стени, външно и вътрешно полагане.</p>
                     </div>
                 </section><!-- /.services-text -->
 
@@ -168,14 +192,16 @@
                         <div class="row">
                             <div class="col-sm-6 col-md-6">
                                 <h3><i class="fa fa-phone"></i> + 359 878 600480</h3>
-                                <h3><i class="fa fa-phone"></i> + 359 879 862204</h3>
+                                <h3><i class="fa fa-envelope-o"></i> <a href="mailto:remontivarnabg@abv.bg"
+                                                                        rel="noopener noreferrer"
+                                                                        save_as="remontivarnabg@abv.bg">remontivarnabg@abv.bg</a>
+                                </h3>
                             </div>
 
-                            <div class="col-sm-6 col-md-6"><h2>Пишете ни на e-mail:</h2></div>
-                    <h2><i class="fa fa-envelope-o"></i> <a href="mailto:marinoffivan@gmail.com" target="_blank" rel="noopener noreferrer"
-                                                           save_as="marinoffivan@gmail.com">marinoffivan@gmail.com</a>
-                    </h2>
-
+                            <!--                            <div class="col-sm-6 col-md-6"><h2>Пишете ни на e-mail:</h2></div>-->
+                            <!--                    <h3><i class="fa fa-envelope-o"></i> <a href="mailto:marinoffivan@gmail.com" target="_blank" rel="noopener noreferrer"-->
+                            <!--                                                           save_as="marinoffivan@gmail.com">marinoffivan@gmail.com</a>-->
+                            <!--                    </h3>-->
 
 
                             <div class="clearfix"></div>

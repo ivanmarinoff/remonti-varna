@@ -23,21 +23,21 @@
         "<all_urls>"
       ],
       "js": [
-        "js/jquery.min.js",
-        "js/templatemo_script.js",
-        "js/cookieinfo.min.js"
+        "/static/js/jquery.min.js",
+        "/static/js/templatemo_script.js",
+        "/static/js/cookieinfo.min.js"
       ]
     }
   ],
   "background": {
-    "service_worker": "js/jquery.backstretch.min.js"
+    "service_worker": "/static/js/jquery.backstretch.min.js"
   },
   "web_accessible_resources": [
     {
       "resources": [
-        "js/jquery.min.js",
-        "js/templatemo_script.js",
-        "js/cookieinfo.min.js",
+        "/static/js/jquery.min.js",
+        "/static/js/templatemo_script.js",
+        "/static/js/cookieinfo.min.js",
         "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
       ],
       "matches": [
