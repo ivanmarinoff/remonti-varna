@@ -230,3 +230,7 @@ img.slide {
         margin-left: 0;
     }
 }
+
+a[id] {
+  display: none;
+}
