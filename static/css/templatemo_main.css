@@ -198,6 +198,7 @@ img.slide {
 
 .templatemo-content {
     padding-bottom: 6%;
+    margin-bottom: 0.5rem;
 }
 
 .footer {
@@ -235,6 +236,13 @@ img.slide {
 @media (max-width: 991px) {
     #responsive {
         display: block !important; /* винаги показано */
+        position: relative;
+        width: 100vw; /* заема цялата ширина на екрана */
+        margin: 0;
+        padding: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
     }
 
     #responsive li {
@@ -245,6 +253,7 @@ img.slide {
     #m-btn {
         display: none !important; /* скрий бутона за отваряне на менюто */
     }
+
     /*.templatemo-site-title {*/
     /*margin-bottom: 0.5rem;*/
     /*}*/
