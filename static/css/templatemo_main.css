@@ -68,6 +68,7 @@ img {
     color: #fff !important;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 1);
     font-size: 48px;
+    margin-bottom: 0.5rem;
 }
 
 .templatemo-site-title a, .templatemo-site-title a:hover {
@@ -218,19 +219,38 @@ img.slide {
     text-decoration: none;
 }
 
+/*@media (max-width: 991px) {*/
+/*    .footer {*/
+/*        overflow: hidden;*/
+/*        position: static;*/
+/*        text-align: center;*/
+
+/*    }*/
+
+/*    .footer-text {*/
+/*        margin-left: 0;*/
+/*    }*/
+/*}*/
+
 @media (max-width: 991px) {
-    .footer {
-        overflow: hidden;
-        position: static;
-        text-align: center;
-
+    #responsive {
+        display: block !important; /* винаги показано */
     }
 
-    .footer-text {
-        margin-left: 0;
+    #responsive li {
+        list-style: none;
+        margin: 0.8rem 0;
     }
+
+    #m-btn {
+        display: none !important; /* скрий бутона за отваряне на менюто */
+    }
+    /*.templatemo-site-title {*/
+    /*margin-bottom: 0.5rem;*/
+    /*}*/
 }
 
+
 a[id] {
-  display: none;
+    display: none;
 }
