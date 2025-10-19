@@ -135,7 +135,7 @@ img.slide {
 .templatemo-content p {
     font-family: 'Raleway', sans-serif;
     color: #000;
-    font-size: 16px;
+    font-size: 19px;
 }
 
 .menu {
@@ -171,7 +171,7 @@ img.slide {
 
 
 #responsive {
-    font-size: 16px;
+    font-size: 21px;
     padding: 0;
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -266,7 +266,7 @@ img.slide {
 /* ==================== MEDIA QUERIES ==================== */
 @media (max-width: 992px) {
   body {
-    font-size: 1.1rem;
+    font-size: 2.1rem;
   }
 
   .templatemo-site-title a {
@@ -274,7 +274,7 @@ img.slide {
   }
 
   #menu-list > li > a {
-    font-size: 1.3rem;
+    font-size: 2.3rem;
   }
 
   #m-btn {
