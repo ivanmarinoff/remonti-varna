@@ -70,9 +70,9 @@ async function sendEmail(req) {
     const now = Date.now();
     const lastSent = emailCooldowns.get(visitorIP);
 
-    const FIVE_MINUTES = 5 * 60 * 1000;
+    const ONE_HOUR = 60 * 60 * 1000;
 
-    if (lastSent && now - lastSent < FIVE_MINUTES) {
+    if (lastSent && now - lastSent < ONE_HOUR) {
         console.log(`⏳ Email already sent recently for IP ${visitorIP}. Skipping.`);
         return; // Не пращаме втори имейл
     }
@@ -192,18 +192,18 @@ app.get('/manifest.json', function (req, res) {
 
 
 // Set up your index route
-app.get('/', function (req, res) {
-    // const visitorIP = req.ip; // Get the visitor's IP address
-    // const browser = req.useragent.browser; // Get the browser information
-    // const os = req.useragent.os; // Get the OS information
-    // const time = new Date().toLocaleString(); // Get the current time
-
-    // Send an email notification with all details
-    // sendEmail(visitorIP, browser, os, time);
-
-    // Serve the HTML file
-    res.sendFile(__dirname + '/index.html');
-});
+// app.get('/', function (req, res) {
+//     // const visitorIP = req.ip; // Get the visitor's IP address
+//     // const browser = req.useragent.browser; // Get the browser information
+//     // const os = req.useragent.os; // Get the OS information
+//     // const time = new Date().toLocaleString(); // Get the current time
+//
+//     // Send an email notification with all details
+//     // sendEmail(visitorIP, browser, os, time);
+//
+//     // Serve the HTML file
+//     res.sendFile(__dirname + '/index.html');
+// });
 
 
 // Start the server

@@ -73,7 +73,10 @@ img {
 .templatemo-site-title a, .templatemo-site-title a:hover {
     color: #fff;
     text-decoration: none;
-    font-size: 5vw; /* 5% от ширината на екрана */
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    /*font-size: 5vw; !* 5% от ширината на екрана *!*/
+    /*font-size: 50px; !* default *!*/
 }
 
 img.slide {
@@ -218,17 +221,35 @@ img.slide {
     text-decoration: none;
 }
 
-@media (max-width: 991px) {
-    .footer {
-        overflow: hidden;
-        position: static;
-        text-align: center;
+/*@media (max-width: 991px) {*/
+/*    .footer {*/
+/*        overflow: hidden;*/
+/*        position: static;*/
+/*        text-align: center;*/
 
-    }
+/*    }*/
 
-    .footer-text {
-        margin-left: 0;
-    }
+/*    .footer-text {*/
+/*        margin-left: 0;*/
+/*    }*/
+/*}*/
+
+@media (max-width: 992px) {
+  .templatemo-site-title a {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .templatemo-site-title a {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .templatemo-site-title a {
+    font-size: 1.5rem;
+  }
 }
 
 a[id] {
