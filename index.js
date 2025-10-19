@@ -3,7 +3,7 @@ const port = process.env.PORT || 3000;
 const express = require('express');
 const app = express();
 const path = require('path');
-// const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 const useragent = require('express-useragent');
 const helmet = require('helmet');
 const crypto = require('crypto');
@@ -44,59 +44,72 @@ app.use(
     })
 );
 // Nodemailer setup with custom host and port
-// const transporter = nodemailer.createTransport({
-//     host: process.env.EMAIL_HOST, // SMTP server (e.g., smtp.gmail.com)
-//     port: parseInt(process.env.EMAIL_PORT), // Convert string to number
-//     secure: parseInt(process.env.EMAIL_PORT) === 465, // true for port 465 (SSL), false otherwise (e.g., 587 for TLS)
-//     auth: {
-//         user: process.env.EMAIL_USER, // Your email address
-//         pass: process.env.EMAIL_PASS  // Your email password or app-specific password
-//     }
-// });
+// Email transporter (SMTP setup)
+const transporter = nodemailer.createTransport({
+    host: process.env.EMAIL_HOST,
+    port: parseInt(process.env.EMAIL_PORT, 10),
+    secure: parseInt(process.env.EMAIL_PORT, 10) === 465,
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
 
-// Function to send an email notification
-// async function sendEmail(visitorIP, browser, os, time) {
-//     let ipAddress = '';
-//
-//     async function fetchIpAddress() {
-//         try {
-//             const response = await fetch('https://api.ipify.org?format=json');
-//             const data = await response.json();
-//             ipAddress = data.ip;
-//         } catch (error) {
-//             console.error('Failed to fetch IP address:', error);
-//         }
-//     }
-//
-//     // Fetch IP address on page load
-//     await fetchIpAddress();
-//
-//     // fetch('https://api.ipify.org?format=json')
-//     //     .then(response => response.json())
-//     //     .then(data => {
-//     //         ipAddress = data.ip;
-//     //     });
-//
-//     const mailOptions = {
-//         from: process.env.EMAIL_USER,
-//         to: process.env.EMAIL_USER1, // Sending the email to yourself
-//         subject: 'A new visitor has accessed your page.',
-//         text: `
-//             A visitor has left your page.
-//             IP: ${visitorIP}
-//             Browser: ${browser}
-//             OS: ${os}
-//             Session Ended: ${time}
-//         `
-//     };
-//
-//     try {
-//         const info = await transporter.sendMail(mailOptions);
-//         console.log('Email sent:', info.response);
-//     } catch (error) {
-//         console.log('Error sending email:', error);
-//     }
-// }
+// Send visitor info via email
+// 🕒 Кеш за последно изпратени имейли (по IP)
+const emailCooldowns = new Map(); // { ip: timestamp }
+
+// Email sender с анти-flood защита
+async function sendEmail(req) {
+    const visitorIP = req.headers['x-forwarded-for'] || req.socket.remoteAddress || req.ip;
+    const browser = req.useragent.browser || 'Unknown';
+    const os = req.useragent.os || 'Unknown';
+    const time = new Date().toLocaleString();
+
+    // Проверка за flood (5 минути cooldown)
+    const now = Date.now();
+    const lastSent = emailCooldowns.get(visitorIP);
+
+    const FIVE_MINUTES = 5 * 60 * 1000;
+
+    if (lastSent && now - lastSent < FIVE_MINUTES) {
+        console.log(`⏳ Email already sent recently for IP ${visitorIP}. Skipping.`);
+        return; // Не пращаме втори имейл
+    }
+
+    // Записваме момента на последното изпращане
+    emailCooldowns.set(visitorIP, now);
+
+    const mailOptions = {
+        from: `"Site Visitor" <${process.env.EMAIL_USER}>`,
+        to: process.env.EMAIL_USER1,
+        subject: 'New visitor on your site',
+        text: `
+New visitor detected:
+
+IP: ${visitorIP}
+Browser: ${browser}
+OS: ${os}
+Time: ${time}
+        `,
+    };
+
+    try {
+        const info = await transporter.sendMail(mailOptions);
+        console.log(`✅ Email sent to ${process.env.EMAIL_USER1} for IP ${visitorIP}:`, info.response);
+    } catch (error) {
+        console.error('❌ Error sending email:', error);
+        // Ако има грешка — премахни cooldown, за да може да се пробва пак
+        emailCooldowns.delete(visitorIP);
+    }
+}
+
+
+// Example use
+app.get('/', async (req, res) => {
+    await sendEmail(req);
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 const isDesktop = (userAgent) => {
     return /Windows|Macintosh|Linux/.test(userAgent);
@@ -111,9 +124,9 @@ app.get('/manifest.json', function (req, res) {
         : '/static/fonts/fontawesome-webfont.svg';
 
     const manifest = {
-        name: "My Resume Site",
-        short_name: "Resume",
-        description: "This is a Resume site on my portfolio.",
+        name: "Site from building service",
+        short_name: "remontivarna",
+        description: "This is a repair services site.",
         version: "1.0.0",
         start_url: "/",
         display: "standalone",
@@ -131,12 +144,9 @@ app.get('/manifest.json', function (req, res) {
                 js: [
                     "static/js/gtag.js",
                     "static/js/head_tagscript.js",
-                    "static/js/jquery.js",
-                    "static/js/bootstrap.min.js",
-                    "static/js/jquery.singlePageNav.min.js",
-                    "static/js/typed.js",
-                    "static/js/wow.min.js",
-                    "static/js/custom.js",
+                    "static/js/jquery.backstretch.min.js",
+                    "static/js/jquery.min.js",
+                    "static/js/jtemplatemo_script.js",
                     "static/js/body_tagscript.js",
                     "static/js/cookieinfo.min.js",
                 ]
@@ -150,14 +160,11 @@ app.get('/manifest.json', function (req, res) {
                 resources: [
                     "static/js/gtag.js",
                     "static/js/head_tagscript.js",
-                    "static/js/jquery.js",
-                    "static/js/bootstrap.min.js",
-                    "static/js/jquery.singlePageNav.min.js",
-                    "static/js/typed.js",
-                    "static/js/wow.min.js",
-                    "static/js/custom.js",
-                    "static/js/cookieinfo.min.js",
+                    "static/js/jquery.backstretch.min.js",
+                    "static/js/jquery.min.js",
+                    "static/js/jtemplatemo_script.js",
                     "static/js/body_tagscript.js",
+                    "static/js/cookieinfo.min.js",
                     "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
                 ],
                 matches: ["<all_urls>"]
@@ -180,7 +187,7 @@ app.get('/manifest.json', function (req, res) {
     fs.writeFileSync('./manifest.json', JSON.stringify(manifest, null, 2), 'utf-8');
 
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).send(JSON.stringify(manifest, null, 2));
+    res.json(manifest);
 });
 
 
@@ -204,14 +211,14 @@ app.listen(port, function () {
     console.log(`Server is listening on port ${port}`);
 });
 
-app.post('/session-end', express.json(), (req, res) => {
-    const {ip, browser, os, time} = req.body;
-
-    // Send an email with the collected data
-    sendEmail(ip, browser, os, time);
-
-    res.sendStatus(200); // Respond with a status to indicate successful handling
-});
+// app.post('/session-end', express.json(), (req, res) => {
+//     const {ip, browser, os, time} = req.body;
+//
+//     // Send an email with the collected data
+//     sendEmail(ip, browser, os, time);
+//
+//     res.sendStatus(200); // Respond with a status to indicate successful handling
+// });
 
 
 // Mixpanel setup (if needed)

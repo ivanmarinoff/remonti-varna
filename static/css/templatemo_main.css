@@ -68,7 +68,6 @@ img {
     color: #fff !important;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 1);
     font-size: 48px;
-    margin-bottom: 0.9em;
 }
 
 .templatemo-site-title a, .templatemo-site-title a:hover {
@@ -114,7 +113,7 @@ img.slide {
     font-family: 'Raleway', sans-serif;
     position: relative;
     overflow: hidden;
-    top: 20px;
+    top: 0;
     background-color: rgba(255, 255, 255, 0.75);
     padding: 30px;
     line-height: 1.8;
@@ -198,7 +197,6 @@ img.slide {
 
 .templatemo-content {
     padding-bottom: 6%;
-    margin-bottom: 0.5rem;
 }
 
 .footer {
@@ -220,46 +218,19 @@ img.slide {
     text-decoration: none;
 }
 
-/*@media (max-width: 991px) {*/
-/*    .footer {*/
-/*        overflow: hidden;*/
-/*        position: static;*/
-/*        text-align: center;*/
-
-/*    }*/
-
-/*    .footer-text {*/
-/*        margin-left: 0;*/
-/*    }*/
-/*}*/
-
 @media (max-width: 991px) {
-    #responsive {
-        display: block !important; /* винаги показано */
-        position: relative;
-        width: 100vw; /* заема цялата ширина на екрана */
-        margin: 0;
-        padding: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
+    .footer {
+        overflow: hidden;
+        position: static;
+        text-align: center;
+
     }
 
-    #responsive li {
-        list-style: none;
-        margin: 0.8rem 0;
+    .footer-text {
+        margin-left: 0;
     }
-
-    #m-btn {
-        display: none !important; /* скрий бутона за отваряне на менюто */
-    }
-
-    /*.templatemo-site-title {*/
-    /*margin-bottom: 0.5rem;*/
-    /*}*/
 }
 
-
 a[id] {
-    display: none;
+  display: none;
 }
