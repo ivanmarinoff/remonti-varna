@@ -1,6 +1,6 @@
-/* 
+/*
 
-Nature Template 
+Nature Template
 
 https://templatemo.com/tm-398-nature
 
@@ -66,16 +66,16 @@ img {
 
 .templatemo-site-title {
     color: #fff !important;
-    text-shadow: 0px 2px 3px rgba(0, 0, 0, 1);
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 1);
     font-size: 48px;
 }
 
 .templatemo-site-title a, .templatemo-site-title a:hover {
     color: #fff;
     text-decoration: none;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    /*font-size: 5vw; !* 5% от ширината на екрана *!*/
+    /*font-size: clamp(1.8rem, 5vw, 2.8rem);*/
+    /*font-weight: 700;*/
+    font-size: 5vw; /* 5% от ширината на екрана */
     /*font-size: 50px; !* default *!*/
 }
 
@@ -211,7 +211,7 @@ img.slide {
 .footer-text {
     font-family: 'Raleway', sans-serif;
     color: #fff;
-    text-shadow: 0px 2px 3px rgba(0, 0, 0, 1);
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 1);
     margin-left: 30px;
     font-size: 14px;
 }
@@ -234,24 +234,107 @@ img.slide {
 /*    }*/
 /*}*/
 
+/*@media (max-width: 992px) {*/
+/*    .templatemo-site-title a {*/
+/*        font-size: 2.5rem;*/
+/*    }*/
+
+/*    .footer {*/
+/*        overflow: hidden;*/
+/*        position: static;*/
+/*        text-align: center;*/
+
+/*    }*/
+
+/*    .footer-text {*/
+/*        margin-left: 0;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 768px) {*/
+/*    .templatemo-site-title a {*/
+/*        font-size: 2rem;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 480px) {*/
+/*    .templatemo-site-title a {*/
+/*        font-size: 1.5rem;*/
+/*    }*/
+/*}*/
+
+/* ==================== MEDIA QUERIES ==================== */
 @media (max-width: 992px) {
+  body {
+    font-size: 1.1rem;
+  }
+
   .templatemo-site-title a {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 6vw, 2.8rem);
+  }
+
+  #menu-list > li > a {
+    font-size: 1.3rem;
+  }
+
+  #m-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .templatemo-content section {
+    padding: 30px 20px;
   }
 }
 
 @media (max-width: 768px) {
+  body {
+    font-size: 1.2rem;
+  }
+
   .templatemo-site-title a {
-    font-size: 2rem;
+    font-size: clamp(2.2rem, 7vw, 3rem);
+  }
+
+  #menu-list {
+    flex-direction: column;
+  }
+
+  #menu-list > li > a {
+    text-align: center;
+    padding: 18px;
+    font-size: 1.4rem;
+  }
+
+  #m-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer-text {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
   .templatemo-site-title a {
-    font-size: 1.5rem;
+    font-size: clamp(4rem, 10vw, 4rem);
+  }
+
+  #menu-list > li > a {
+    font-size: 5rem;
+  }
+
+  .templatemo-content p {
+    font-size: 5rem;
+  }
+
+  #m-btn {
+    width: 54px;
+    height: 54px;
   }
 }
 
 a[id] {
-  display: none;
+    display: none;
 }

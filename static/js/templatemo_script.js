@@ -1,6 +1,7 @@
 /* Credit: http://www.templatemo.com */
 
 var menuDisabled = false;
+document.documentElement.classList.add('js-enabled');
 
 jQuery(function ($) {
 
