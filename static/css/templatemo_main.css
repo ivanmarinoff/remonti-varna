@@ -9,12 +9,12 @@ https://templatemo.com/tm-398-nature
 body, html { overflow-x: hidden; }
 
 body {
-    font-size: 1em;
-    line-height: 1.4;
+    font-size: 2em;
+    line-height: 2.4;
     font-family: 'Raleway', sans-serif;
     font-style: normal; 
     -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
-    -webkit-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 160%;
 }
 
 h1, h2, h3, h4, h5, h6, span, p { font-family: 'Raleway', sans-serif; }
@@ -75,6 +75,7 @@ img.slide {
     width: 100%; 
     z-index: -9999999; 
     position: absolute;
+    font-size: 5vw; /* 5% от ширината на екрана */
 }
 
 .active {
@@ -216,7 +217,7 @@ img.slide {
 @media (max-width: 991px) {
     .footer {
         overflow:hidden; 
-        position:static;
+        position:absolute;
         text-align: center;
         
     }
