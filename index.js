@@ -192,18 +192,18 @@ app.get('/manifest.json', function (req, res) {
 
 
 // Set up your index route
-app.get('/', function (req, res) {
-    const visitorIP = req.ip; // Get the visitor's IP address
-    const browser = req.useragent.browser; // Get the browser information
-    const os = req.useragent.os; // Get the OS information
-    const time = new Date().toLocaleString(); // Get the current time
-
-    // Send an email notification with all details
-    sendEmail(visitorIP, browser, os, time);
-
-    // Serve the HTML file
-    res.sendFile(__dirname + '/index.html');
-});
+// app.get('/', function (req, res) {
+//     // const visitorIP = req.ip; // Get the visitor's IP address
+//     // const browser = req.useragent.browser; // Get the browser information
+//     // const os = req.useragent.os; // Get the OS information
+//     // const time = new Date().toLocaleString(); // Get the current time
+//
+//     // Send an email notification with all details
+//     // sendEmail(visitorIP, browser, os, time);
+//
+//     // Serve the HTML file
+//     res.sendFile(__dirname + '/index.html');
+// });
 
 
 // Start the server
