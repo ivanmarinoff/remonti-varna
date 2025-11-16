@@ -191,40 +191,18 @@ app.get('/manifest.json', function (req, res) {
 });
 
 
-// Set up your index route
-// app.get('/', function (req, res) {
-//     // const visitorIP = req.ip; // Get the visitor's IP address
-//     // const browser = req.useragent.browser; // Get the browser information
-//     // const os = req.useragent.os; // Get the OS information
-//     // const time = new Date().toLocaleString(); // Get the current time
-//
-//     // Send an email notification with all details
-//     // sendEmail(visitorIP, browser, os, time);
-//
-//     // Serve the HTML file
-//     res.sendFile(__dirname + '/index.html');
-// });
-
-
 // Start the server
 app.listen(port, function () {
     console.log(`Server is listening on port ${port}`);
 });
 
 app.post('/session-end', express.json(), (req, res) => {
-    const {ip, browser, os, time} = req.body;
-
-    // Send an email with the collected data
-    sendEmail(ip, browser, os, time).then(r => {
-        console.log(r);
-    });
+    // const {ip, browser, os, time} = req.body;
+    //
+    // // Send an email with the collected data
+    // sendEmail(ip, browser, os, time).then(r => {
+    //     console.log(r);
+    // });
 
     res.sendStatus(200); // Respond with a status to indicate successful handling
 });
-
-
-// Mixpanel setup (if needed)
-// const Mixpanel = require('mixpanel', {track_pageview: true});
-//
-// // Create an instance of the Mixpanel client
-// const mixpanel = Mixpanel.init(process.env.MIXPANEL_TOKEN, {host: "api-eu.mixpanel.com"});
